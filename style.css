@@ -21,8 +21,9 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     gap: 2em;
-    margin-top: 15em;
+    margin-top: 10em;
 }
 .buttons{
     background-color: #3882f6;
@@ -43,10 +44,10 @@ body{
     display: flex;
     flex-direction: column;
 }
-.result-text{
+#computerchoice, .result-text{
     padding: 0.2em;
-    text-align: center;
     font-family: 'Courier New';
+    text-align: center;
     font-size: 1.6em;
     font-weight: bold;
     color: white;
