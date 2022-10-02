@@ -4,20 +4,26 @@
     <meta charset="UTF-8">
     <title>Rock, Paper, Scissors!</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <div id="header">
         <p id="header-text">Rock Paper Scissors</p>
     </div>
     <div id="content">
-        <button type="button" class="buttons">Rock</button>
-        <button type="button" class="buttons">Paper</button>
-        <button type="button" class="buttons">Scissors</button>
+        <p id="computerchoice">Computer has chosen:</p>
+        <div id="buttons">
+            <button type="button" id="button1" class="buttons">Rock</button>
+            <button type="button" id="button2" class="buttons">Paper</button>
+            <button type="button" id="button3" class="buttons">Scissors</button>
+        </div>
     </div>
     <div id="result">
+        <div class="result-text">
+            <p id="result-text-two">Player score:</p>
+            <p id="result-text-three">Computer score:</p>
+        </div>
         <p class="result-text" id="result-text-one">Won: -</p>
-        <p class="result-text" id="result-text-two">Result score: -</p>
     </div>
 </body>
 </html>
