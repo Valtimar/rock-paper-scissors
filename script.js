@@ -34,8 +34,16 @@ function playRound(playerSelection, computerSelection){
         }
     }
 }
+COMPUTERCHOICE = document.getElementById("computerchoice");
+BUTTONS = document.getElementsByClassName("buttons")
 
-playerSelection = "Rock";
-computerSelection = getComputerChoice();
+function computerchoice(){
+    COMPUTERCHOICE.innerHTML = "Computer has chosen: " + getComputerChoice();
+}
 
-console.log(playRound(playerSelection, computerSelection));
+for(let i = 0; i < BUTTONS.length; i++){
+    BUTTONS[i].addEventListener("click", computerchoice)
+}
+
+
+
