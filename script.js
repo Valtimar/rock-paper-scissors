@@ -1,48 +1,74 @@
 const myArray = ["Rock", "Paper", "Scissors"];
 
+COMPUTERCHOICE = document.getElementById("computerchoice");
+BUTTONS = document.getElementsByClassName("buttons")
+BUTTON1 = document.getElementById("button1")
+BUTTON2 = document.getElementById("button2")
+BUTTON3 = document.getElementById("button3")
+WIN = document.getElementById("result-win")
+PLAYERSCORE = document.getElementById("playerscore")
+COMPUTERSCORE = document.getElementById("computerscore")
+
 function getComputerChoice(){
     return myArray[Math.floor(Math.random() * myArray.length)];
 }
 function playRound(playerSelection, computerSelection){
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
-    if (playerSelection == computerSelection){
-        return "It's a draw!";
+    function points(){
+        let playerScore = 0;
+        let computerScore = 0;
+        if (playerSelection == computerSelection){
+            WIN.innerHTML = "Draw"
+        }
+        else if (playerSelection == "rock"){
+            if (computerSelection == "paper"){
+                computerScore++;
+                COMPUTERSCORE.innerHTML = "Computer score: " + `${computerScore}`;
+                WIN.innerHTML = "Computer"
+            }
+            else{
+                playerScore++;
+                PLAYERSCORE.innerHTML = "Player score: " + `${playerScore}`;
+                WIN.innerHTML = "Player"
+            }
+        }
+        else if (playerSelection == "paper"){
+            if (computerSelection == "scissors"){
+                computerScore++;
+                COMPUTERSCORE.innerHTML = "Computer score: " + `${computerScore}`;
+                WIN.innerHTML = "Computer"
+            }
+            else{
+                playerScore++;
+                PLAYERSCORE.innerHTML = "Player score: " + `${playerScore}`;
+                WIN.innerHTML = "Player"
+            }
+        }
+        else if (playerSelection == "scissors"){
+            if (computerSelection == "rock"){
+                computerScore++;
+                COMPUTERSCORE.innerHTML = "Computer score: " + `${computerScore}`;
+                WIN.innerHTML = "Computer"
+            }
+             else{
+                playerScore++;
+                PLAYERSCORE.innerHTML = "Player score: " + `${playerScore}`;
+                WIN.innerHTML = "Player"
+            }
+        }
     }
-    else if (playerSelection == "rock"){
-        if (computerSelection == "paper"){
-            return "You lose! Paper beats rock";
-        }
-        else{
-            return "You win! Rock beats scissors!";
-        }
-    }
-    else if (playerSelection == "paper"){
-        if (computerSelection == "scissors"){
-            return "You lose! Scissors beats Paper";
-        }
-        else{
-            return "You win! Paper beats rock";
-        }
-    }
-    else if (playerSelection == "scissors"){
-        if (computerSelection == "rock"){
-            return "You lose! Rock beats scissors";
-        }
-         else{
-            return "You win! Scissors beats paper";
-        }
-    }
+    return points;
 }
-COMPUTERCHOICE = document.getElementById("computerchoice");
-BUTTONS = document.getElementsByClassName("buttons")
 
-function computerchoice(){
+
+function showComputerChoice(){
     COMPUTERCHOICE.innerHTML = "Computer has chosen: " + getComputerChoice();
 }
+computerSelection = getComputerChoice();
 
 for(let i = 0; i < BUTTONS.length; i++){
-    BUTTONS[i].addEventListener("click", computerchoice)
+    BUTTONS[i].addEventListener("click", showComputerChoice)
 }
 
 
